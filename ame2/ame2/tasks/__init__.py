@@ -76,3 +76,6 @@ gym.register(
         "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:PPORunnerCfg_G1_Gaze_Student",
     },
 )
+
+# 新增机器人任务独立注册，保留原有 G1 配置。
+from . import n2  # noqa: F401, E402

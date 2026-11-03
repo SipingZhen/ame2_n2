@@ -17,6 +17,8 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$HERE/.." && pwd)"
+source "$HERE/docker_group.sh"
+ame2_refresh_docker_group "$HERE/run.sh" "$@"
 IMAGE=${IMAGE:-ame2-minimal:latest}
 GPUS=0; GUI=0; DETACH=0
 while [ $# -gt 0 ]; do

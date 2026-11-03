@@ -3,6 +3,8 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$HERE/.." && pwd)"
+source "$HERE/docker_group.sh"
+ame2_refresh_docker_group "$HERE/build.sh" "$@"
 IMAGE=${IMAGE:-ame2-minimal:latest}
 BASE_IMAGE=${BASE_IMAGE:-nvcr.io/nvidia/isaac-lab:2.3.2}
 DOCKER_BUILDKIT=1 docker build -f "$HERE/Dockerfile" --build-arg BASE_IMAGE="$BASE_IMAGE" -t "$IMAGE" "$ROOT"
